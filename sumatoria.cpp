@@ -8,18 +8,13 @@ int sumatoria(int *array,long int);
 void sumatoria2(int *array,long int,long int,long int *sum);
 void mostrar(int *array,long int);
 long int sum=0;
-int arrayprueba[10000] ={};
 
 int main(){
-    llenado(arrayprueba,10000);
-    //mostrar(arrayprueba,10);
-    sumatoria2(arrayprueba,0,10000,&sum);
-    cout<<sum<<endl;
-    /*llenado(array1,1000000);
+    llenado(array1,1000000);
     mostrar(array1,1000000);
     cout<<sumatoria(array1,1000000)<<endl;
-    cout<<sumatoria(arrayprueba,100000)<<endl;
-    cout<<sumatoria2(array1,1000000)<<endl;*/
+    sumatoria2(array1,0,1000000,&sum);
+    cout<<sum<<endl;
     return 0;
 }
 //llenado e impresión
