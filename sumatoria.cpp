@@ -2,19 +2,20 @@
 #include <array>
 using namespace std;
 
-int array1[1000000]={};
+int array1[100000000]={};
 void llenado(int *array,long int);
 int sumatoria(int *array,long int);
 void sumatoria2(int *array,long int,long int,long int *sum);
 void mostrar(int *array,long int);
+long long sumaRecursiva(int* arr,long int);
+long long sumaIterativa(int* arr,long int);
 long int sum=0;
 
 int main(){
-    llenado(array1,1000000);
-    mostrar(array1,1000000);
-    cout<<sumatoria(array1,1000000)<<endl;
-    sumatoria2(array1,0,1000000,&sum);
-    cout<<sum<<endl;
+    llenado(array1,100000000);
+    //mostrar(array1,1000000);
+    cout<<sumatoria(array1,100000000)<<endl;
+    cout<<sumaRecursiva(array1,100000000)<<endl;
     return 0;
 }
 //llenado e impresión
@@ -43,4 +44,20 @@ void sumatoria2(int *array,long int indice,long int m, long int *sum){      //so
         indice ++;
         sumatoria2(array,indice,m,sum);
     }
+}
+//suma Marko
+long long sumaRecursiva(int* arr,long int tam){
+    suma:
+        if(tam == 1) return *arr;
+        *(arr + tam - 2) += *(arr + tam - 1);
+        tam--;
+        goto suma;
+}
+
+long long sumaIterativa(int* arr,long int tam){
+    long long suma = 0;
+    for(int i = 0; i < tam; i++){
+        suma += *(arr + i);
+    }
+    return suma;
 }
